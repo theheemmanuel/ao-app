@@ -17,7 +17,7 @@ const Home = () => {
   };
 
   const { data, refetch, loading } = useFetchApp();
-  console.log(data);
+  // console.log(data);
   return (
     <SafeAreaView className="bg-primary min-h-[100vh] px-5">
       <FlatList
@@ -50,12 +50,9 @@ const Home = () => {
                 Latest Videos
               </Text>
               <Tranding
-                posts={
-                  [
-                    { id: 1, title: "My Home Pgae" },
-                    { id: 2, title: "My Profile" },
-                  ] ?? []
-                }
+                posts={data.filter(
+                  (item: any) => item.category === "electronics"
+                )}
               />
             </View>
           </View>
